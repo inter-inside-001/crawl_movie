@@ -1,0 +1,56 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;crawl_movie&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../testgit" />
+      <root url="file://$PROJECT_DIR$/../lbm" />
+      <root url="file://$PROJECT_DIR$/../goroutine" />
+      <root url="file://$PROJECT_DIR$/../demo" />
+      <root url="file://$PROJECT_DIR$/../hello" />
+      <root url="file://$PROJECT_DIR$/../lbmweb" />
+      <root url="file://$PROJECT_DIR$/../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../goPlugins/src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../github.com" />
+      <root url="file://$PROJECT_DIR$/../../../goPlugins/src/sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../../../goPlugins/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../mine" />
+      <root url="file://$PROJECT_DIR$/../.idea" />
+      <root url="file://$PROJECT_DIR$/../beeweb" />
+      <root url="file://$PROJECT_DIR$/../test" />
+      <root url="file://$PROJECT_DIR$/../drill" />
+      <root url="file://$PROJECT_DIR$/../beeApiTest" />
+      <root url="file://$PROJECT_DIR$/../drill2" />
+      <root url="file://$PROJECT_DIR$/../helper" />
+      <root url="file://$PROJECT_DIR$/../beeTest" />
+      <root url="file://$PROJECT_DIR$/../samples" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../testgit" />
+      <root url="file://$PROJECT_DIR$/../lbm" />
+      <root url="file://$PROJECT_DIR$/../goroutine" />
+      <root url="file://$PROJECT_DIR$/../demo" />
+      <root url="file://$PROJECT_DIR$/../hello" />
+      <root url="file://$PROJECT_DIR$/../lbmweb" />
+      <root url="file://$PROJECT_DIR$/../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../goPlugins/src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../github.com" />
+      <root url="file://$PROJECT_DIR$/../../../goPlugins/src/sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../../../goPlugins/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../mine" />
+      <root url="file://$PROJECT_DIR$/../.idea" />
+      <root url="file://$PROJECT_DIR$/../beeweb" />
+      <root url="file://$PROJECT_DIR$/../test" />
+      <root url="file://$PROJECT_DIR$/../drill" />
+      <root url="file://$PROJECT_DIR$/../beeApiTest" />
+      <root url="file://$PROJECT_DIR$/../drill2" />
+      <root url="file://$PROJECT_DIR$/../helper" />
+      <root url="file://$PROJECT_DIR$/../beeTest" />
+      <root url="file://$PROJECT_DIR$/../samples" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>
