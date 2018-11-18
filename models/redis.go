@@ -27,6 +27,14 @@ func PopfromQueue() string{
 	return string(res)
 }
 
+func GetQueueLength() int{
+	length,err := client.Llen(URL_QUEUE)
+	if err!=nil{
+		return 0
+	}
+	return length
+}
+
 func AddToSet(url string){
 	client.Sadd(URL_VISIT_SET, []byte(url))
 }
@@ -39,10 +47,3 @@ func IsVisit(url string) bool{
 	return bIsVisit
 }
 
-func GetQueueLength() int{
-	length,err := client.Llen(URL_QUEUE)
-	if err!=nil{
-		return 0
-	}
-	return length
- }

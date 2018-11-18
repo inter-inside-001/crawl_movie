@@ -24,7 +24,6 @@ type MovieInfo struct {
 	Movie_on_time       string
 	Movie_span          string
 	Movie_grade         string
-	_Create_time        string
 }
 
 func init() {
@@ -39,64 +38,79 @@ func AddMovie(movie_info *MovieInfo) (int64, error) {
 	return id, err
 }
 
+func GetOneInfoByRegxep(content string, regexpString string) string{
+	if content == ""{
+		return ""
+	}
+	reg := regexp.MustCompile(regexpString)
+	result := reg.FindAllStringSubmatch(content, -1)
+
+	if len(result) == 0{
+		return ""
+	}
+
+	return string(result[0][1])
+}
+
 func GetMovieDirector(movieHtml string) string {
 	regexpStr := `<a.*?rel="v:directedBy">(.*?)</a>`
-	result := GetInfoByRegxep(movieHtml, regexpStr)
-	return result[0][1]
+	result := GetOneInfoByRegxep(movieHtml, regexpStr)
+	return result
 }
 
 func GetMovieName(movieHtml string) string {
 	regexpStr := `<span\s*?property="v:itemreviewed">(.*?)</span>`
-	result := GetInfoByRegxep(movieHtml, regexpStr)
-	return result[0][1]
+	result := GetOneInfoByRegxep(movieHtml, regexpStr)
+	return result
+}
+
+func GetMovieGrade(movieHtml string)string{
+	regexpStr := `<strong.*?property="v:average">(.*?)</strong>`
+	result := GetOneInfoByRegxep(movieHtml, regexpStr)
+	return result
+}
+
+func GetMovieOnTime(movieHtml string) string{
+	regexpStr := `<span.*?property="v:initialReleaseDate".*?>(.*?)\(.*</span>`
+	result := GetOneInfoByRegxep(movieHtml, regexpStr)
+	return result
+}
+
+func GetMovieRunningTime(movieHtml string) string{
+	regexpStr := `<span.*?property="v:runtime".*?>(.*?)</span>`
+	result := GetOneInfoByRegxep(movieHtml, regexpStr)
+	return result
+}
+
+func GetMulInfoByRegxep(content string, regexpString string) string{
+	if content == ""{
+		return ""
+	}
+
+	reg := regexp.MustCompile(regexpString)
+	result := reg.FindAllStringSubmatch(content, -1)
+
+	if len(result) == 0{
+		return ""
+	}
+
+	res := ""
+	for _,v := range result{
+		res += v[1] + "/"
+	}
+
+	return res
 }
 
 func GetMovieMainCharacter(movieHtml string) string{
 	regexpStr := `<a.*?rel="v:starring">(.*?)</a>`
-	result := GetInfoByRegxep(movieHtml, regexpStr)
-
-	mainCharacters := ""
-	for _,v := range result{
-		mainCharacters += v[1] + "/"
-	}
-	return mainCharacters
-}
-
-func GetMovieGrade(movieHtml string)string{
-	reg := regexp.MustCompile(`<strong.*?property="v:average">(.*?)</strong>`)
-	result := reg.FindAllStringSubmatch(movieHtml, -1)
-
-	return string(result[0][1])
+	result := GetMulInfoByRegxep(movieHtml, regexpStr)
+	return result
 }
 
 func GetMovieGenre(movieHtml string)string{
-	reg := regexp.MustCompile(`<span.*?property="v:genre">(.*?)</span>`)
-	result := reg.FindAllStringSubmatch(movieHtml, -1)
-
-	movieGenre := ""
-	for _,v := range result{
-		movieGenre += v[1] + "/"
-	}
-	return movieGenre
-}
-
-func GetMovieOnTime(movieHtml string) string{
-	reg := regexp.MustCompile(`<span.*?property="v:initialReleaseDate".*?>(.*?)\(.*</span>`)
-	result := reg.FindAllStringSubmatch(movieHtml, -1)
-
-	return string(result[0][1])
-}
-
-func GetMovieRunningTime(movieHtml string) string{
-	reg := regexp.MustCompile(`<span.*?property="v:runtime".*?>(.*?)</span>`)
-	result := reg.FindAllStringSubmatch(movieHtml, -1)
-
-	return string(result[0][1])
-}
-
-func GetInfoByRegxep(content string, regexpString string) [][]string{
-	reg := regexp.MustCompile(regexpString)
-	result := reg.FindAllStringSubmatch(content, -1)
+	regexpStr := `<span.*?property="v:genre">(.*?)</span>`
+	result := GetMulInfoByRegxep(movieHtml, regexpStr)
 	return result
 }
 
